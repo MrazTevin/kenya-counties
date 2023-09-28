@@ -2,8 +2,9 @@ FROM maven:3.9.4-jdk-11-slim
 WORKDIR /home/app
 COPY src /home/app/src
 COPY pom.xml /home/app/pom.xml
-RUN mvn clean install
-docker build -t counties-api .
+RUN mvn -f /home/app/pom.xml clean package
+
+
 
 FROM openjdk:11.0.6-jre
 WORKDIR /home/app
