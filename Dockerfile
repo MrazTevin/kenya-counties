@@ -3,6 +3,7 @@ WORKDIR /home/app
 COPY src /home/app/src
 COPY pom.xml /home/app/pom.xml
 RUN mvn clean install
+docker build -t counties-api .
 
 FROM openjdk:11.0.6-jre
 WORKDIR /home/app
