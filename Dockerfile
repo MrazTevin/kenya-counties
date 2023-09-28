@@ -2,7 +2,7 @@ FROM maven:3.9.4-eclipse-temurin-11 AS build
 WORKDIR /home/app
 COPY src /home/app/src
 COPY pom.xml /home/app/pom.xml
-RUN mvn -f /home/app/pom.xml clean package
+RUN mvn clean install
 
 
 
