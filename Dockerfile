@@ -1,4 +1,4 @@
-FROM maven:3.9.4-jdk-11-slim
+FROM maven:3.9.4-jdk-11-slim AS build
 WORKDIR /home/app
 COPY src /home/app/src
 COPY pom.xml /home/app/pom.xml
