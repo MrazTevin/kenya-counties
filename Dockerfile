@@ -3,7 +3,7 @@ WORKDIR /home/app
 COPY src /home/app/src
 COPY pom.xml /home/app/pom.xml
 RUN mvn clean
-RUN --mount=type=cache,target=/root/.m2/repository mvn -f pom.xml clean package -Dmaven.test.skip=true
+RUN --mount=type=cache,id=my-maven-cache mvn -f pom.xml clean package -Dmaven.test.skip=true
 
 
 
