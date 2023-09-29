@@ -3,7 +3,7 @@ WORKDIR /home/app
 COPY src /home/app/src
 COPY pom.xml /home/app/pom.xml
 RUN mvn clean
-RUN mvn clean install && docker build .
+RUN --mount=type=cache,target=/root/.m2/repository mvn -f pom.xml clean package -Dmaven.test.skip=true
 
 
 
